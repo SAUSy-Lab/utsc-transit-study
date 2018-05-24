@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>UTSC Transit Commutes</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css' rel='stylesheet' />
+    <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+    <link href='web/style.css' rel='stylesheet' />
+</head>
+
+
+
+<body>
+
+  <div id='wrapper'>
+
+    <div id='bar'>
+
+      <div id='title'>
+        <h1>UTSC Transit Commuting Map</h1>
+      </div>
+
+      <div id='type'>
+
+        <div onclick='type_switch("students")' onmouseover='m_on("t_students")' onmouseout='m_off("t_students")' id='t_students'><p><b>Students</b></p></div>
+        <div onclick='type_switch("staff")' onmouseover='m_on("t_staff")' onmouseout='m_off("t_staff")' id='t_staff'><p><b>Staff</b></p></div>
+        <div onclick='type_switch("faculty")' onmouseover='m_on("t_faculty")' onmouseout='m_off("t_faculty")' id='t_faculty'><p><b>Faculty</b></p></div>
+        <div onclick='type_switch("all")' onmouseover='m_on("t_all")' onmouseout='m_off("t_all")' id='t_all'><p><b>All</b></p></div>
+
+      </div>
+
+      <div id='durations'>
+
+        <div id="d_title">
+          <p>Average one-way trip travel time:</p>
+        </div>
+        <div id="d_wrapper">
+          <div id='d_mean'></div>
+          <div id='d_mean_text'><p>&nbsp 61 minutes</p></div>
+        </div>
+        <div id="d_scale"></div><div id="d_scale"></div><div id="d_scale"></div><div id="d_scale"></div><div id="d_scale"></div><div id="d_scale"></div>
+
+      </div>
+
+      <div id='durations'>
+
+        <div id="d_title">
+          <p>Median one-way trip travel time:</p>
+        </div>
+        <div id="d_wrapper">
+          <div id='d_median'></div>
+          <div id='d_median_text'><p>&nbsp 57 minutes</p></div>
+        </div>
+        <div id="d_scale"></div><div id="d_scale"></div><div id="d_scale"></div><div id="d_scale"></div><div id="d_scale"></div><div id="d_scale"></div>
+
+      </div>
+
+      <div id='routes'>
+
+        <div id="d_title">
+          <p>Critical Transit Routes:</p>
+        </div>
+        <div id="r_wrapper">
+          <div id='r_1'></div>
+          <div id='r_1_text'><p>&nbsp TTC 95</p></div>
+        </div>
+        <div id="r_wrapper">
+          <div id='r_2'></div>
+          <div id='r_2_text'><p>&nbsp TTC 198</p></div>
+        </div>
+        <div id="r_wrapper">
+          <div id='r_3'></div>
+          <div id='r_3_text'><p>&nbsp TTC 38</p></div>
+        </div>
+        <div id="r_wrapper">
+          <div id='r_4'></div>
+          <div id='r_4_text'><p>&nbsp GO 51</p></div>
+        </div>
+        <div id="r_wrapper">
+          <div id='r_5'></div>
+          <div id='r_5_text'><p>&nbsp DRT 900</p></div>
+        </div>
+        <div id="r_scale"></div><div id="r_scale"></div><div id="r_scale"></div><div id="r_scale"></div><div id="r_scale"></div><div id="r_scale"></div><div id="r_scale"></div>
+        <div id="r_scale_text"><p>0%&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp20% &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp40% &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp60%</p></div>
+        <div id="r_scale_text"><p>&nbsppercent of transit trips using each route</p></div>
+
+      </div>
+
+      <div id='summary'>
+
+        <p>n = 13321 commuters</p>
+
+      </div>
+
+      <div id='attribution'>
+
+        <p>Map built by <a href="http://jamaps.github.io/"target="_blank">Jeff Allen</a> for a <a href="https://github.com/SAUSy-Lab/utsc-transit-study"target="_blank">Report</a> on commuting patterns and transit reliability for the University of Toronto, Scarborough (UTSC)</p>
+
+        <p>Sources: UTSC, Mapbox, OpenStreetMap, OpenTripPlanner, Toronto Transit Commission, GO Transit, Durham Region Transit, York Region Transit (YRT)/Viva, MiWay, Brampton Transit, Oakville Transit, Burlington Transit, Hamilton Street Railway</p>
+
+        <p>Note: The routes displayed are not exact. They are estimated using a network graph which returns the path of shortest travel time from a home location to campus location.</p>
+
+      </div>
+
+    </div>
+
+    <div id='map'></div>
+
+  </div>
+
+
+
+<script src='web/main.js'>
+</script>
+
+
+
+</body>
+
+
+</html>
